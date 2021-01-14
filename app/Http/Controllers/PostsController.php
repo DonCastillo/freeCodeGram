@@ -18,6 +18,12 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
+    public function show(\App\Models\Post $post)
+    {
+        return view('posts.show', compact('post'));
+
+    }
+
     public function store()
     {
         $data = request()->validate([
