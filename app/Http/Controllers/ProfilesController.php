@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class ProfilesController extends Controller
 {
     /**
-     * $user    name/identifier of the user as provided by 
+     * $user    name/identifier of the user as provided by
      *          /profile/{user}
      */
     public function index($user)
     {
-        //dd($user);
-        $user = User::find($user);
-        return view('home', [
+
+        $user = User::findOrFail($user);
+        return view('profiles.index', [
             'user' => $user
         ]);
     }
