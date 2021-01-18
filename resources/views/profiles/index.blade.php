@@ -4,12 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="https://instagram.fyyc5-1.fna.fbcdn.net/v/t51.2885-19/s320x320/97566921_2973768799380412_5562195854791540736_n.jpg?_nc_ht=instagram.fyyc5-1.fna.fbcdn.net&_nc_ohc=Sc96ZJth3ssAX8tsSSh&tp=1&oh=98d7adf7695057a8b55c30d9970ff820&oe=6029379F" alt="" class="rounded-circle" style="max-height:150px;">
+            <img src="/storage/{{ $user->profile->image }}" alt="" class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <h1>{{ $user->username }}</h1>
-                <a href="/p/create">Add New Post</a>
+                @can('update', $user->profile)
+                    <a href="/p/create">Add New Post</a>
+                @endcan
             </div>
 
             @can('update', $user->profile)
