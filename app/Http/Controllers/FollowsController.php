@@ -7,6 +7,12 @@ use App\Models\User;
 
 class FollowsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(User $user)
     {
 
